@@ -3,30 +3,6 @@
 #include <string.h>
 #include "binarytree.h"
 
-binaryTree* createBinaryTree(int value);
-
-node* createNode(int value);
-
-node * addItem(int value, node * _n);
-void addTreeItem(int value, binaryTree * _binaryTree);
-
-node* balanceTree(int value, node * _n);
-
-node* rotateLeft(node * _n);
-
-node* rotateRight(node * _n);
-
-node * removeItem(int value, node * _n);
-void removeTreeItem(int value, binaryTree * _binaryTree);
-
-void printPathToItem(int value, binaryTree * _binaryTree);
-
-void printInOrder(node * _n);
-
-int getMax(int a, int b);
-
-int getHeight(node * _n);
-
 binaryTree* createBinaryTree(int value)
 {
 	binaryTree * _newBinaryTree = malloc(sizeof(binaryTree));
@@ -226,6 +202,33 @@ void removeTreeItem(int value, binaryTree * _binaryTree)
 {
 	_binaryTree->top = removeItem(value, _binaryTree->top);
 	--_binaryTree->size;
+}
+
+void removeTree(binaryTree* _binaryTree)
+{
+	removeInOrder(_binaryTree->top, _binaryTree->top);
+	_binaryTree->top = NULL;
+}
+
+node* removeInOrder(node * _n, node * _parent)
+{
+	if (_n == NULL)
+	{
+		return _n;
+	}
+
+	if (_n->rightNode != NULL)
+	{
+		removeInOrder(_n->rightNode, _n);
+	}
+
+	if (_n->leftNode != NULL)
+	{
+		removeInOrder(_n->leftNode, _n);
+	}
+
+	free(_n);
+	return _parent;
 }
 
 void printPathToItem(int value, binaryTree * _binaryTree)

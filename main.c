@@ -22,4 +22,6 @@ int main()
 	removeTreeItem(3, _tree);
 
 	printInOrder(_tree->top);
+
+	removeTree(_tree);
 }

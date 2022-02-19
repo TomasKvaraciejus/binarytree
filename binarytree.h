@@ -31,6 +31,9 @@ node* rotateRight(node* _n);
 node* removeItem(int value, node* _n);
 void removeTreeItem(int value, binaryTree* _binaryTree);
 
+void removeTree(binaryTree * _binaryTree);
+node* removeInOrder(node* _n, node* _parent);
+
 void printPathToItem(int value, binaryTree* _binaryTree);
 
 void printInOrder(node* _n);
