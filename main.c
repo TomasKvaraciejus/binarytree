@@ -5,10 +5,11 @@
 int main()
 {
 	int a = 3, b[7] = { 8, 2, 7, 15, 0, -3, 4 };
-	binaryTree* _tree = createBinaryTree(a);
+	int *error = -1;
+	binaryTree* _tree = createBinaryTree(a, error);
 	for (int i = 0; i < 7; i++)
 	{
-		addTreeItem(b[i], _tree);
+		addTreeItem(b[i], _tree, error);
 	}
 
 	printPathToItem(b[3], _tree);
