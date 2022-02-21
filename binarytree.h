@@ -15,12 +15,12 @@ struct binaryTree // Tree
 };
 typedef struct binaryTree binaryTree;
 
-binaryTree* createBinaryTree(int value); // returns pointer to new binary tree with root of given value
+binaryTree* createBinaryTree(int value, int *error); // returns pointer to new binary tree with root of given value
 
-node* createNode(int value); // returns pointer to node with given value
+node* createNode(int value, int *error); // returns pointer to node with given value
 
-node* addItem(int value, node* _n); // recursive function that inserts item
-void addTreeItem(int value, binaryTree* _binaryTree);
+node* addItem(int value, node* _n, int *error); // recursive function that inserts item
+void addTreeItem(int value, binaryTree* _binaryTree, int *error);
 
 node* removeItem(int value, node* _n); // recursive function that removes item
 void removeTreeItem(int value, binaryTree* _binaryTree);
