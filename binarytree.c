@@ -35,7 +35,6 @@ node* createNode(int value)
 	}
 	else
 	{
-		printf("err: could not allocate memory\n");
 		return NULL;
 	}
 }
