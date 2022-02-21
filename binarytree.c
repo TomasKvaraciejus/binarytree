@@ -3,7 +3,7 @@
 #include <string.h>
 #include "binarytree.h"
 
-binaryTree* createBinaryTree(int value)
+binaryTree* createBinaryTree(int value, int *error)
 {
 	binaryTree * _newBinaryTree = malloc(sizeof(binaryTree));
 	if (_newBinaryTree != NULL)
@@ -15,13 +15,13 @@ binaryTree* createBinaryTree(int value)
 	}
 	else
 	{
-		printf("err: could not allocate memory\n");
+		*error = -1;
 	}
 
 	return _newBinaryTree;
 }
 
-node* createNode(int value)
+node* createNode(int value, int *error)
 {
 	node* _newNode = malloc(sizeof(node));
 	if (_newNode != NULL)
@@ -35,11 +35,12 @@ node* createNode(int value)
 	}
 	else
 	{
+		*error = -1;
 		return NULL;
 	}
 }
 
-node * addItem(int value, node * _n)
+node * addItem(int value, node * _n, int *error)
 {
 	if (_n == NULL)
 	{
@@ -48,11 +49,11 @@ node * addItem(int value, node * _n)
 
 	if (value > _n->data)
 	{
-		_n->leftNode = addItem(value, _n->leftNode);
+		_n->leftNode = addItem(value, _n->leftNode, error);
 	}
 	else if (value < _n->data)
 	{
-		_n->rightNode = addItem(value, _n->rightNode);
+		_n->rightNode = addItem(value, _n->rightNode, error);
 	}
 	else
 	{
@@ -66,9 +67,9 @@ node * addItem(int value, node * _n)
 	return _n;
 }
 
-void addTreeItem(int value, binaryTree * _binaryTree)
+void addTreeItem(int value, binaryTree * _binaryTree, int *error)
 {
-	_binaryTree->top = addItem(value, _binaryTree->top);
+	_binaryTree->top = addItem(value, _binaryTree->top, error);
 	++_binaryTree->size;
 }
 
