@@ -22,12 +22,6 @@ node* createNode(int value); // returns pointer to node with given value
 node* addItem(int value, node* _n); // recursive function that inserts item
 void addTreeItem(int value, binaryTree* _binaryTree);
 
-node* balanceTree(int value, node* _n); // function that adjusts tree to fit AVL type
-
-node* rotateLeft(node* _n); // function used in balancing
-
-node* rotateRight(node* _n); // function used in balancing
-
 node* removeItem(int value, node* _n); // recursive function that removes item
 void removeTreeItem(int value, binaryTree* _binaryTree);
 
@@ -37,6 +31,12 @@ node* removeInOrder(node* _n, node* _parent);
 void printPathToItem(int value, binaryTree* _binaryTree); // prints path to given value
 
 void printInOrder(node* _n); // prints tree values in order
+
+node* balanceTree(int value, node* _n); // function that adjusts tree to fit AVL type
+
+node* rotateLeft(node* _n); // function used in balancing
+
+node* rotateRight(node* _n); // function used in balancing
 
 int getMax(int a, int b); // function used in balancing
 
